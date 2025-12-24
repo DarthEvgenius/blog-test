@@ -1,0 +1,57 @@
+import { defineStore } from "pinia"
+import type { Post } from '~/types'
+
+export const usePostsStore = defineStore("posts", () => {
+  const posts = ref<Post[]>([])
+  const currentPost = ref<Post | null>(null)
+  const isLoading = ref(false)
+  const isInitialized = ref(false)
+  const api = useApi()
+
+  const fetchPosts = async () => {
+    isLoading.value = true
+    try {
+      const fetchedPosts = await api.getPosts()
+      posts.value = fetchedPosts
+      isInitialized.value = true
+      console.log('Fetched posts:', fetchedPosts.length)
+    } catch (error) {
+      console.error('Failed to fetch posts:', error)
+      posts.value = [] // Reset on error
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+    const fetchPostById = async (id: string) => {
+    isLoading.value = true
+    try {
+      const post = await api.getPostById(id)
+      currentPost.value = post
+      console.log('Fetched post:', post)
+    } catch (error) {
+      console.error(`Failed to fetch post ${id}:`, error)
+      currentPost.value = null
+    } finally {
+      isLoading.value = false
+    }
+  }
+
+  // const initStore =  () => {
+  //   if (process.client && !isInitialized.value) {
+  //     console.log('Auto-initializing store...')
+  //      fetchPosts()
+  //   }
+  // }
+
+  // initStore()
+
+  return {
+    posts,
+    currentPost,
+    isLoading,
+
+    fetchPosts,
+    fetchPostById,
+  }
+})
