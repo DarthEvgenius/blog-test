@@ -1,6 +1,12 @@
-# Nuxt Minimal Starter
+# Nuxt blog template
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Перед сборкой создать в корневой папке файл .env c cодержимым как в файле env.example, или:
+
+```text
+NUXT_API_BASE=https://6082e3545dbd2c001757abf5.mockapi.io
+NUXT_PUBLIC_API_BASE=https://6082e3545dbd2c001757abf5.mockapi.io
+NUXT_PUBLIC_API_PATH=/qtim-test-work
+```
 
 ## Setup
 
@@ -71,5 +77,3 @@ yarn preview
 # bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
