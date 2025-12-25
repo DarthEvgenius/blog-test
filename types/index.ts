@@ -1,4 +1,4 @@
-export interface Post {
+export type Post = {
   id: string
   createdAt: string
   title: string
@@ -6,3 +6,5 @@ export interface Post {
   image: string
   description: string
 }
+
+export type PostInList = Pick<Post, 'preview' | 'image' | 'title' | 'id'>

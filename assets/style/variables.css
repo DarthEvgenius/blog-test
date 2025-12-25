@@ -1,4 +1,23 @@
 :root {
-  --color: #000;
-  --font-main: 'Helvetica, Arial, sans-serif';
+  --clr-black-dark: #101010;
+  --clr-black-light: #232323;
+  --clr-grey-dark: #868686;
+  --clr-grey-regular: #E8E8E8;
+  --clr-grey-light: #F3F3F3;
+  --clr-white: #ffffff;
+
+  --clr-green: #9EFFBF;
+  --clr-purple-dark: #7941A7;
+  --clr-purple-light: #E2BEFF;
+  --clr-blue: #1059C8;
+
+  --font-main: 'poppins-regular', Arial, sans-serif;
+
+  --fz-xxl: 7rem; /* 112px */
+  --fz-xl: 5.25rem; /* 84px */
+  --fz-lg: 2.25rem; /* 36px */
+  --fz-md: 1.25rem; /* 20px */
+  --fz-sm: 1rem; /* 16px */
+
+  --main-bg-clr: var(--clr-white);
 }

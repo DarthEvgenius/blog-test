@@ -2,7 +2,7 @@
 <div>
   <!-- posts {{ posts }} -->
 
-  <Blog />
+  <BlogSection />
 </div>
 </template>
 

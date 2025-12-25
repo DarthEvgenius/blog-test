@@ -1,5 +1,6 @@
 import type { Post } from '~/types'
 
+
 export const useApi = () => {
   const getPosts = async (): Promise<Post[]> => {
     try {

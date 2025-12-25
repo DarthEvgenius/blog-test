@@ -1,9 +1,9 @@
-import type { Post } from '~/types'
+import type { Post, PostInList } from '~/types'
 import { isPostArray } from '~/server/utils/api'
 
-export default defineEventHandler(async (event): Promise<{ posts: Post[] }> => {
+export default defineEventHandler(async (event): Promise<{ posts: PostInList[] }> => {
   const config = useRuntimeConfig()
-  const res = await $fetch(`${config.public.apiBase}/qtim-test-work/posts/`)
+  const res = await $fetch(`${config.apiBase}${config.public.apiPath}/posts/`)
   
   // Validate response type
   if (!isPostArray(res)) {
@@ -12,6 +12,8 @@ export default defineEventHandler(async (event): Promise<{ posts: Post[] }> => {
       statusMessage: 'Invalid response format'
     })
   }
+
+  const postsInList: PostInList[] = res.map(({ id, preview, image, title }) => ({ id, preview, image, title }))
   
-  return { posts: res }
+  return { posts: postsInList }
 })

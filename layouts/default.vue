@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <Header>header</Header>
+  <div class="wrapper">
+    <Header class="header" />
 
-    <slot />
+    <main class="main">
+      <slot />
+    </main>
     
-    <footer>footer</footer>
+    <footer class="footer">footer</footer>
   </div>
 </template>
 
@@ -12,6 +14,11 @@
 
 </script>
 
-<style module lang='scss'>
-
+<style scoped>
+.wrapper {
+  padding-inline: max(7.7vw, 1rem);
+}
+.header {}
+.main {}
+.footer {}
 </style>

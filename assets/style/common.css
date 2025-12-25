@@ -5,7 +5,8 @@ html {
 html,
 body {
   font-family: var(--font-main);
-  color: var(--color);
+  color: var(--clr-black-dark, #000);
+  font-weight: 400;
 }
 
 body {

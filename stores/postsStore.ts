@@ -1,11 +1,12 @@
 import { defineStore } from "pinia"
-import type { Post } from '~/types'
+import type { Post, PostInList } from '~/types'
 
 export const usePostsStore = defineStore("posts", () => {
-  const posts = ref<Post[]>([])
-  const currentPost = ref<Post | null>(null)
-  const isLoading = ref(false)
-  const isInitialized = ref(false)
+  const posts = shallowRef<PostInList[]>([])
+  const currentPost = shallowRef<Post | null>(null)
+  
+  const isLoading = shallowRef(false)
+  const isInitialized = shallowRef(false)
   const api = useApi()
 
   const fetchPosts = async () => {

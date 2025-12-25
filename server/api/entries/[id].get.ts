@@ -20,7 +20,7 @@ export default defineEventHandler(async (event): Promise<{ post: Post }> => {
     })
   }
 
-  const res = await $fetch(`${config.public.apiBase}/qtim-test-work/posts/${id}`)
+  const res = await $fetch(`${config.apiBase}${config.public.apiPath}/posts/${id}`)
   
   // Validate response type
   if (!isPost(res)) {
