@@ -6,7 +6,7 @@
       <slot />
     </main>
     
-    <footer class="footer">footer</footer>
+    <Footer class="footer">footer</Footer>
   </div>
 </template>
 
@@ -16,9 +16,15 @@
 
 <style scoped>
 .wrapper {
-  padding-inline: max(7.7vw, 1rem);
+  --main-padding: max(7.7vw, 1rem);
 }
-.header {}
-.main {}
-.footer {}
+.header {
+  
+}
+.main {
+  padding-inline: var(--main-padding);
+}
+.footer {
+  padding-inline: var(--main-padding);
+}
 </style>

@@ -1,14 +1,15 @@
 import type { Post } from '~/types'
 
 
+
 export const useApi = () => {
+  const config = useRuntimeConfig()
+  const api = config.public.apiBase + config.public.apiPath + '/posts'
+
   const getPosts = async (): Promise<Post[]> => {
     try {
       const { data, error } = await useFetch(
-        '/api/entries',
-        {
-          transform: (response: { posts: Post[] }) => response.posts,
-        }
+        api
       )
 
       if (error.value) {
@@ -19,7 +20,7 @@ export const useApi = () => {
         throw new Error('No data received from server')
       }
 
-      return data.value
+      return data.value as Post[]
     } catch (error) {
       console.error('Error fetching posts:', error)
       return []
@@ -31,17 +32,17 @@ export const useApi = () => {
       console.error('Invalid post ID provided')
       return null
     }
-
+    
     try {
-      const { data, error } = await useFetch<{ post: Post }>(
-        `/api/entries/${id}`
+      const { data, error, pending } = await useFetch<Post>(
+        () => `${api}/${id}`
       )
 
       if (error.value) {
         throw new Error(`Fetch failed: ${error.value.message}`)
       }
 
-      return data.value?.post || null
+      return data.value ? (data.value as Post) : null
     } catch (error) {
       console.error(`Error fetching post with ID ${id}:`, error)
       return null

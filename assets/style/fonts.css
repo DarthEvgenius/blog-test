@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'poppins-regular';
+  font-family: 'commons';
   src:
-      local("Poppins Regular"),
-      url("/fonts/Poppins-Regular.woff2") format('woff2');
+      local("TTCommons Regular"),
+      url("/fonts/TTCommons-Regular.woff2") format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;

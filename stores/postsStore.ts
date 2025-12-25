@@ -38,15 +38,6 @@ export const usePostsStore = defineStore("posts", () => {
     }
   }
 
-  // const initStore =  () => {
-  //   if (process.client && !isInitialized.value) {
-  //     console.log('Auto-initializing store...')
-  //      fetchPosts()
-  //   }
-  // }
-
-  // initStore()
-
   return {
     posts,
     currentPost,

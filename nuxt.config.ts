@@ -3,19 +3,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Blog Test',
-      link: [
-        {
-          rel: 'preload',
-          href: '/fonts/Poppins-Regular.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: 'anonymous',
-        },
-      ]
+      
     },
   },
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
     '@nuxt/image',
     '@pinia/nuxt',
@@ -37,6 +29,7 @@ export default defineNuxtConfig({
     apiBase: process.env.NUXT_API_BASE || 'https://6082e3545dbd2c001757abf5.mockapi.io',
     public: {
       apiPath: process.env.NUXT_PUBLIC_API_PATH || '/qtim-test-work',
+      apiBase: process.env.NUXT_PUBLIC_API_BASE
     }
   },
 })

@@ -2,6 +2,7 @@
   <div class="card">
     <div class="card__content">
       <div class="card__image">
+        <!-- :src="imageSrc" -->
         <NuxtImg
           :src="'/images/image.webp'"
           :alt="altText"
@@ -68,7 +69,10 @@ const { imageSrc, altText, text, id} = defineProps<{
 .card__text {
   text-wrap: pretty;
   line-height: 1.2;
-  -webkit-line-clamp: 3
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .card__link {
